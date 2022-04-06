@@ -10,23 +10,24 @@
 <br>
 <div class="row" style="margin-left: 20px;">
   <div class="col-7">
-    <form class="form">
+    <div class="form">
+    <!-- <form class="form" novalidate> -->
       <div class="form-group row ">
         <div class="col-sm-5">
-        <label for="inputPassword" class="  ">Document Name : </label>
+        <label for="inputPassword" class="  " >Document Name : </label>
       </div>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="docname" placeholder="Enter the document name" (keyup)="setName($event)">
+          <input type="text" class="form-control" pattern="[a-zA-Z]*" id="docname" placeholder="Enter the document name" (keyup)="setName($event)">
         </div>
         
       </div>
-      <div class="form-group row my-3">
+      <!-- <div class="form-group row my-3">
         <div class="col-sm-5">
         <label for="inputPassword" class="">Document Type : </label>
       </div>
         <div class="col-sm-6">
         <select name="doctype" class="form-control" id="doctype" (change)="setType($event)">
-          <!-- <option value="default"> --Choose an option-- </option> -->
+          <option value="default"> --Choose an option-- </option> 
           <option value="pdf">.Pdf</option>
           <option value="word">.Word</option>
           <option value="excel">.Excel</option>
@@ -34,24 +35,24 @@
         </select>
       </div>
         
-      </div>
-      <div class="form-group row">
+      </div>-->
+      <div class="form-group row my-3">
         <div class="col-sm-5">
         <label for="inputPassword" class="" >Document Description : </label>
       </div>
         <div class="col-sm-6">
           
-          <input type="text" class="form-control" id="docdesc" placeholder="Enter the description" (keyup)="setDescription($event)">
+          <input type="text" class="form-control" id="docdesc" pattern="[a-zA-Z]*" placeholder="Enter the description" (keyup)="setDescription($event)">
         </div>
         
       </div>
-      
+      <small id="warnlabel" class="text-danger">{{warn}}</small>
       <div class="row mt-4 ">
         <div class="col-3">
           <button class="btn btn-danger btn-lg px-4 py-2 btn-block font-weight-bold"> RESET </button>
         </div>
         <div class="col-3">
-          <button class="btn btn-success btn-lg btn-block px-3 py-2 font-weight-bold" (click)="addDocuments()" >CREATE</button>      
+          <button class="btn btn-success btn-lg btn-block px-3 py-2 font-weight-bold" (click)="addDocuments()"  >CREATE</button>      
         </div>
         <!-- <div class="col-3">
           <button routerLink="/docmain2" class="btn btn-success btn-block btn-lg font-weight-bold" >UPLOAD</button>
@@ -61,9 +62,9 @@
       
       
       
+    </div>
 
-
-      </form>
+      <!-- </form> -->
   </div>
   <div class="col-5">
     <img id="img1"src="https://images.unsplash.com/photo-1584628804801-aa1a640cba8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
@@ -167,7 +168,7 @@
     <div class="row justify-content-center pt-xxl-2">
       <div class="col-xl-6 col-lg-7 col-md-9 col-sm-11">
         <h2 class="h1 pb-3 mb-3"> <i class="fa-solid fa-dove"></i> REGISTER YOUR PRESENCE </h2>
-        <form class="subscription-form position-relative validate" action="https://studio.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;amp;id=29ca296126" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate="">
+        <form class="subscription-form position-relative validate" action="https://github.com/ArunKarthik12/Doc-Man" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate="">
           <div class="d-flex flex-column flex-sm-row">
             <div class="position-relative w-100 mb-3 mb-sm-0 me-sm-3">
               <input class="form-control form-control-lg ps-5" type="email" name="EMAIL" placeholder="Your email" required="">
@@ -185,7 +186,7 @@
       </div>
     </div>
     <div class="pt-5 mt-lg-3 mt-xl-4">
-      <p class="text-muted mb-0">© All rights reserved. Made with <i class="bx bx-heart d-inline-block fs-lg text-gradient-primary align-middle mt-n1 mx-1"></i> by&nbsp; <a href="http://localhost:4200/" class="text-muted" target="_blank" rel="noopener"> ARUN KARTHIK </a></p>
+      <p class="text-muted mb-0">© All rights reserved. Made with <i class="fa-solid fa-heart"></i> by&nbsp; <a href="http://localhost:4200/" class="text-muted" target="_blank" rel="noopener"> ARUN KARTHIK </a></p>
     </div>
   </div>
 </footer>

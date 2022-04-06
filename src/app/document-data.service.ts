@@ -20,8 +20,8 @@ export class DocumentDataService {
   // setType(event:any){
   //   this.type=event.target.value;
   // }
-  addDocuments(name:any, type:any,description:any){
-      let data=[name,type,description,""];
+  addDocuments(name:any, description:any){
+      let data=[name,"",description,""];
       this.documents.push(data);
       // alert(name);
       // alert(type);
@@ -35,6 +35,17 @@ export class DocumentDataService {
   };
 
   getType(){
-    return this.documents[length-1][1];
+    let data =this.documents[this.documents.length-1];
+    return data[1];
+  };
+  getName(){
+    let data =this.documents[this.documents.length-1];
+    return data[0];
+    
+  };
+  getDescription(){
+    let data =this.documents[this.documents.length-1];
+    return data[2];
+    
   };
 }

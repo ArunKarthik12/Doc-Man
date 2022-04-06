@@ -3,9 +3,9 @@
 <header class="header">
     <a href="#default" class="logo ">Doc-Man</a>
     <div class="header-right">
-        <a class=" btn btn-outline-secondary px-3" href="#home"><i class="fa-solid fa-house"></i></a>
-        <a class="  btn btn-outline-secondary mx-3 px-3" href="#footer"><i class="fa-solid fa-address-book"></i></a>
-        <button type="button" class="btn btn-outline-secondary px-3" data-bs-toggle="modal" data-bs-target="#modal"><i class="fa-solid fa-book-open"></i></button>
+        <a class=" btn btn-outline-secondary px-3" title="HOME" href="#home"><i class="fa-solid fa-house"></i></a>
+        <a class="  btn btn-outline-secondary mx-3 px-3" title="CONTACT" href="#footer"><i class="fa-solid fa-address-book"></i></a>
+        <button type="button" class="btn btn-outline-secondary px-3" title="ABOUT" data-bs-toggle="modal" data-bs-target="#modal"><i class="fa-solid fa-book-open"></i></button>
         <!-- <button type="button" class="" data-toggle="modal" data-target=".bd-example-modal-lg">About</button> -->
       </div>
 </header>
@@ -14,25 +14,81 @@
         <div class="col-7">
             <div class="card ">
                 <form>
+                  <label class="my-3 mx-3 fw-bold" >
+                    SELECT THE DOCUMENT TYPE 
+                  </label>
+                  <div class="form-check mx-3 mt-2">
+                    
+                    <input class="form-check-input" type="radio" name="exampleRadios" (click)="checkradio($event)" id="exampleRadios1" value="pdf" >
+                    <label class="form-check-label" for="exampleRadios1">
+                      PDF
+                    </label>
+                  </div>
+                  <div class="form-check mx-3">
+                    <input class="form-check-input" type="radio" name="exampleRadios" (click)="checkradio($event)" id="exampleRadios2" value="word">
+                    <label class="form-check-label" for="exampleRadios2">
+                      WORD
+                    </label>
+                  </div>
+                  <div class="form-check mx-3">
+                    <input class="form-check-input" type="radio" name="exampleRadios" (click)="checkradio($event)" id="exampleRadios3" value="excel" >
+                    <label class="form-check-label" for="exampleRadios3">
+                      EXCEL
+                    </label>
+                  </div>
                     <div class="p-3 row">
                         <div class="col-5">
                             <label class="mt-2 fw-bold">Upload the Document :</label>
                         </div>
+                        
                         <div class="col-7">
-                            {{""+conditionPdf}}
+                            <!-- {{""+conditionPdf}} -->
                             <div *ngIf="conditionPdf">
-                                <input class="btn btn-light" type="file" id="myfile" accept="application/pdf, .doc, .docx, .odf">
+                                <input class="btn btn-light" type="file" id="myfile" (change)="showfile($event)"accept="application/pdf">
                             </div>
-                            <!-- <div *ngIf="conditionExcel">
-                                <input class="btn btn-light" type="file" id="myfile" accept="application/pdf, .doc, .docx, .odf">
+                            <div *ngIf="conditionExcel">
+                                <input class="btn btn-light" type="file" id="myfile" (change)="showfile($event)" accept="application/excel,.xls,.xlsx">
                             </div>
                             <div *ngIf="conditionWord">
-                                <input class="btn btn-light" type="file" id="myfile" accept="application/pdf, .doc, .docx, .odf">
-                            </div> -->
+                                <input class="btn btn-light" type="file" id="myfile" (change)="showfile($event)" accept="application/docx,.doc,.docx">
+                            </div>
                                                         
                         </div>
                     </div>
                 </form>
+
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      
+                        <th>
+                          Document Name
+                        </th>
+                        <th>
+                          Document Description
+                        </th>
+                        <th>
+                          Uploaded Document
+                        </th>
+                        <th>
+                          Remove
+                        </th>
+                        <th>
+                          Download
+                        </th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        {{this.name}}
+                      </td>
+                      <td>{{this.description}}</td>
+                      <td>{{this.fileName}}</td>
+                    </tr>
+                  </tbody>
+                </table>
             </div>
         </div>
         <div class="col-5">
@@ -149,7 +205,7 @@
       </div>
     </div>
     <div class="pt-5 mt-lg-3 mt-xl-4">
-      <p class="text-muted mb-0">© All rights reserved. Made with <i class="bx bx-heart d-inline-block fs-lg text-gradient-primary align-middle mt-n1 mx-1"></i> by&nbsp; <a href="http://localhost:4200/" class="text-muted" target="_blank" rel="noopener"> ARUN KARTHIK </a></p>
+      <p class="text-muted mb-0">© All rights reserved. Made with <i class="fa-solid fa-heart"></i> by&nbsp; <a href="http://localhost:4200/" class="text-muted" target="_blank" rel="noopener"> ARUN KARTHIK </a></p>
     </div>
   </div>
 </footer>
